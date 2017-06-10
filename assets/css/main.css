@@ -1,0 +1,129 @@
+body {
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	background-color: #edf0f4;
+}
+
+td {
+	margin: 2px;
+}
+
+footer, h1, header h2 {
+	text-align: center;
+}
+
+h1, .dwmp, h2, h3 {
+	font-family: "Lucida Calligraphy", cursive;
+}
+
+header p, header td {
+	font-style: italic;
+}
+
+#patrons {
+	text-align: center;
+}
+
+#patrons h4 {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+img.left, img.right, img.middle {
+	max-width: 100%;
+	height: auto;
+	display: block;
+  margin: 0.7em;
+}
+
+img.left {
+	float: left;
+}
+
+img.right {
+	float: right;
+}
+
+img.middle {
+    margin-left: auto;
+    margin-right: auto
+}
+
+div#data {
+	clear: both;
+}
+
+.hidden {
+	display: none;
+}
+
+tr.clickableRow { 
+	cursor: pointer; 
+}
+
+/* Handles the paper effect for content*/
+
+.letter {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 26px auto 0;
+/*  max-width: 550px;
+  min-height: 300px; */
+  padding: 24px;
+  position: relative;
+  width: 92%;
+
+}
+.letter:before, .letter:after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.letter:before {
+  background: #fafafa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-2.5deg);
+}
+.letter:after {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+}
+
+#data, #dataForm {
+	display: none;
+}
+
+.loginInfo {
+  font-weight: bold;
+}
+
+#markdownPreviewArea {
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+#narrative {
+  overflow: hidden;
+}
+
+.error-block {
+  font-weight: bold;
+}
+
+.btn {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#saveAllResultChangedDetails {
+  display: none;
+}
