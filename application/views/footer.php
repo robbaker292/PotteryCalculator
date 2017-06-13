@@ -5,8 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 </main>
 <footer class="container">
-    <div class="col-md-12">
-        <hr>
+    <div class="col-md-12">        
         <a href="<?php echo base_url(); ?>">Home</a>&nbsp;&nbsp;|&nbsp;
         <a href="<?php echo base_url(); ?>">Events</a>&nbsp;&nbsp;|&nbsp;
         <a href="/">Products</a>&nbsp;&nbsp;|&nbsp;

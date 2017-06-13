@@ -1,7 +1,7 @@
 body {
-	margin-left: 1.5em;
-	margin-right: 1.5em;
-	background-color: #edf0f4;
+	margin-left: 1.2em;
+	margin-right: 1.2em;
+	background-color: #ffeecc;
 }
 
 td {
@@ -12,21 +12,12 @@ footer, h1, header h2 {
 	text-align: center;
 }
 
-h1, .dwmp, h2, h3 {
-	font-family: "Lucida Calligraphy", cursive;
+footer {
+  margin-top: 3em;
 }
 
 header p, header td {
 	font-style: italic;
-}
-
-#patrons {
-	text-align: center;
-}
-
-#patrons h4 {
-	margin-top: 0.25em;
-	margin-bottom: 0.25em;
 }
 
 img.left, img.right, img.middle {
@@ -100,10 +91,6 @@ tr.clickableRow {
 	display: none;
 }
 
-.loginInfo {
-  font-weight: bold;
-}
-
 #markdownPreviewArea {
   border: 1px solid #cecece;
   border-radius: 5px;
@@ -126,4 +113,28 @@ tr.clickableRow {
 
 #saveAllResultChangedDetails {
   display: none;
+}
+
+.profit {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.total_profit {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.inprofit {
+  color: green;
+}
+
+.outprofit {
+  color: red;
+}
+
+caption {
+  caption-side:bottom;
+  text-align: center;
+  font-style: italic;
 }

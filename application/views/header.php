@@ -12,11 +12,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/dataTables.bootstrap.min.css">    
 
     <script src="<?php echo asset_url(); ?>js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/jquery.validate.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo asset_url(); ?>js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo asset_url(); ?>js/dataTables.bootstrap.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/navbar.js"></script>
+    <script src="<?php echo asset_url(); ?>js/main.js"></script>
 
 	<title><?php echo $title; ?></title>
 </head>
