@@ -9,7 +9,7 @@ class Product extends CI_Controller {
 	}
 
 	/**
-	*	Displays the details of the given casualty
+	*	Displays the details of the given product
 	*/
 	public function view($id, $name = null) {
 

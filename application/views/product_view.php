@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-var_dump($sales_data);
+//var_dump($sales_data);
 ?>
 
 <h2><?php echo $product_data->name; 
@@ -170,7 +170,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."product/edit/".$product_data->id."\" c
 				echo "</td><td>";
 				echo $resource->date_bought;
 				echo "</td><td>";
-				echo number_format($resource->amount,2).$resource->unit_type;
+				echo number_format($resource->amount,2)." ".$resource->unit_type;
 				echo "</td><td>";
 				echo "&pound;".number_format($resource->cost,2);
 				echo "</td></tr>";
