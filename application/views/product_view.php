@@ -42,7 +42,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."product/edit/".$product_data->id."\" c
 		</tr>
 		<tr>
 			<?php
-				echo "<td class=\"profit\">";
+				echo "<td class=\"total_profit\">";
 				echo count($sales_data);
 				echo "</td><td class=\"total_profit";
 				if($product_data->profit > 0) {

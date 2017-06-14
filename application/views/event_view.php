@@ -60,7 +60,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 		</tr>
 		<tr>
 			<?php
-				echo "<td class=\"profit\">";
+				echo "<td class=\"total_profit\">";
 				echo count($sales_data);
 				echo "</td><td class=\"total_profit";
 				if($event_data->profit > 0) {

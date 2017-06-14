@@ -138,3 +138,11 @@ caption {
   text-align: center;
   font-style: italic;
 }
+
+rect.negative {
+  fill: red;
+}
+
+rect.positive {
+  fill: green;
+}

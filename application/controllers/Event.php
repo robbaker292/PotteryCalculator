@@ -36,7 +36,7 @@ class Event extends CI_Controller {
 		$total_time = 0;
 		//calculate profit
 		foreach($sales_data as $sale) {
-			$sale->revenue = floatval($sale->sale_price) * (1-floatval($sale->vat)) * (1-floatval($sale->cut));
+			$sale->revenue = (floatval($sale->sale_price) * (1-floatval($sale->cut))) / (1+floatval($sale->vat));
 			$total_revenue += $sale->revenue;
 			$event_cost = (floatval($sale->sale_price) * floatval($sale->cost_sales)) + floatval($sale->calculated_cost_upfront);
 			$sale->profit = $sale->revenue - ($event_cost + floatval($sale->parts_cost));
