@@ -53,10 +53,12 @@ class Event extends CI_Controller {
 			} else {
 				$event_data->profits["p".$sale->product_id] = $sale->profit;
 			}
-			$total_time = floatval($sale->time);
+			$total_time += floatval($sale->time);
 			$products["p".$sale->product_id] = $sale->product_id;
 			$products_name["p".$sale->product_id] = $sale->product_name;
 		}
+
+		$total_time = $total_time / count($sales_data);
 
 		//calculate other product details
 		$event_data->avg_profit = $event_data->profit / count($sales_data);

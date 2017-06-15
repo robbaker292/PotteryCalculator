@@ -1,6 +1,31 @@
 $(document).ready(function() {
 
-    console.log("hello");
+
+    function barClicked(date) {
+        console.log("hello", date);
+        $.ajax({
+          url: "./dashboard/getFromDate/"+date
+        })
+        .done(function( data ) {
+            $("#eventsDrilldownOuter").html(data);
+            $("#eventsDrilldownOuter").show();            
+            console.log( "Sample of data:", data );
+
+            $('.dataTable').DataTable({
+                "paging":   false,
+                "searching":    false,
+                "info":     false,
+                "lengthChange":     false,
+                "order": [[ 1, "desc" ]],
+                "columnDefs": [
+                    { "orderable": false, "targets": 0 }
+                ]
+            });
+        });
+    }
+
+    $("#eventsDrilldownOuter").hide();
+
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 960 - margin.left - margin.right,
@@ -8,12 +33,19 @@ $(document).ready(function() {
 
     // set the ranges
     var x = d3.scaleBand()
-              .range([0, width])
-              .padding(0.1);
+        .range([0, width])
+        .padding(0.1);
+
     var y = d3.scaleLinear()
-              .range([height, 0]);
+        .range([height, 0]);
+
+    var center = d3.scaleLinear()
+        .range([0, width]);
 
     var parseDate = d3.timeParse("%Y-%m-%d");
+    var formatDate = d3.timeFormat("%Y-%m-%d");
+    var formatMonth = d3.timeFormat("%B"),
+    formatDay = d3.timeFormat("%e");
               
     // append the svg object to the body of the page
     // append a 'group' element to 'svg'
@@ -42,12 +74,29 @@ $(document).ready(function() {
         // append the rectangles for the bar chart
         svg.selectAll(".bar")
             .data(data)
-        .enter().append("rect")
-            .attr("class", "bar")
+            .enter().append("rect")
+            .attr("class", function(d) {
+                if(d.profit > 0) {
+                    return "bar positive";
+                } else {
+                    return "bar negative"
+                }
+            })
+            .attr("data-sale-date", function(d) {
+                return formatDate(d.date);
+            })
             .attr("x", function(d) { return x(d.date); })
             .attr("width", x.bandwidth())
-            .attr("y", function(d) { return y(d.profit); })
-             .attr("height", function(d) { return height - y(d.profit); });
+            .attr("y", function(d) { return y(Math.max(0, d.profit)); })
+            .attr("height", function(d) { return Math.abs(y(d.profit) - y(0)); })
+            .on("click", function(d) {
+                barClicked(formatDate(d.date));
+                d3.event.stopPropagation();
+            });
+
+
+//.attr("y", function(d) { return y(d.profit); })
+//.attr("height", function(d) { return height - y(d.profit); });
 
         // add the x Axis
         svg.append("g")
@@ -55,7 +104,20 @@ $(document).ready(function() {
             .call(
                 d3.axisBottom()
                 .scale(x)
-                .tickFormat(d3.timeFormat("%e %b"))
+                .tickFormat( function(d,i) {
+                    if (d.getDate() == 1) {
+                        return formatMonth(d);
+                    } else {
+                        return formatDay(d);
+                    }
+                })
+            );
+
+        svg.append("g")
+            .attr("class", "centerline")
+            .attr("transform", "translate(0," + y(0) + ")")
+            .call(d3.axisTop(center)
+                .ticks(0)
             );
 
         // add the y Axis
@@ -63,6 +125,5 @@ $(document).ready(function() {
             .call(d3.axisLeft(y));
 
     });
-
 
 } );

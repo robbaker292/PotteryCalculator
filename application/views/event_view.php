@@ -44,7 +44,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 
 		if(trim($event_data->cost_sales) != "" && trim($event_data->cost_sales) != "0.00" && $event_data->cost_sales !== null ) {
 			echo "<tr><th class=\"col-sm-3\">Cost from sales</th><td>";
-			echo number_format($event_data->cost_sales,2)."%";
+			echo number_format($event_data->cost_sales*100,2)."%";
 			echo "</td></tr>";
 		}
 
@@ -83,7 +83,11 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 				echo "</td><td>";
 				echo "&pound;".number_format($event_data->avg_selling_price,2);
 				echo "</td><td>";
-				echo number_format($event_data->margin,2)."%";
+				if($event_data->margin === "N/A") {
+					echo $event_data->margin;
+				} else {
+					echo number_format($event_data->margin,2)."%";
+				}
 				echo "</td><td>";
 				echo "<a href=\"".base_url()."event/view/".$event_data->max_event_id."\">".$event_data->max_event_name." (&pound;"
 					.number_format($event_data->max_event_profit,2).")</a>";
