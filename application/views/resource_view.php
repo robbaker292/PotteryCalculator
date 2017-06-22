@@ -40,7 +40,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."resource/edit/".$resource_data->id."\"
 
 		if(trim($resource_data->price_paid) != "") {
 			echo "<tr><th class=\"col-sm-3\">Price Paid</th><td>";
-			echo $resource_data->price_paid;
+			echo "&pound;".number_format($resource_data->price_paid,2);
 			echo "</td></tr>";
 		}
 

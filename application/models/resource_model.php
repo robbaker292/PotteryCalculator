@@ -29,7 +29,7 @@ class Resource_model extends CI_Model {
     /*
     * Returns all the data about the given Resource
     */
-    public function getProductWithResource($id) {
+    public function getProductsWithResource($id) {
         $sql = "SELECT p.id, p.name, pr.amount, (pr.amount / r.size) * r.price_paid AS cost FROM resource r
             JOIN product_resource pr ON pr.rid = r.id 
             JOIN product p ON pr.pid = p.id

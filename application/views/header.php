@@ -33,10 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<h1>Pottery by Andrew Macdermott</h1>
 			<nav id="nav-main">
 			    <ul>
-			        <li><a href="<?php echo base_url(); ?>">Home</a></li>
+			        <li><a href="<?php echo base_url(); ?>Dashboard">Home</a></li>
 			        <li><a href="<?php echo base_url(); ?>Event/listAll">Events</a></li>
 			        <li><a href="<?php echo base_url(); ?>Product/listAll">Products</a></li>
-			        <li><a href="<?php echo base_url(); ?>">Resources</a></li>
+			        <li><a href="<?php echo base_url(); ?>Resource/listAll">Resources</a></li>
 			    </ul>
 			</nav>
 		</div>
