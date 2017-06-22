@@ -8,6 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/main.css">
@@ -32,8 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<nav id="nav-main">
 			    <ul>
 			        <li><a href="<?php echo base_url(); ?>">Home</a></li>
-			        <li><a href="<?php echo base_url(); ?>">Events</a></li>
-			        <li><a href="<?php echo base_url(); ?>/Product/listAll">Products</a></li>
+			        <li><a href="<?php echo base_url(); ?>Event/listAll">Events</a></li>
+			        <li><a href="<?php echo base_url(); ?>Product/listAll">Products</a></li>
 			        <li><a href="<?php echo base_url(); ?>">Resources</a></li>
 			    </ul>
 			</nav>

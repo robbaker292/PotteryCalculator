@@ -9,7 +9,7 @@ class Product_model extends CI_Model {
     }
 
     /*
-    * Returns all the data about the given casualty
+    * Returns all the data about the given product
     */
     public function getProduct($id) {
         $sql = "SELECT * FROM product WHERE id=?";
@@ -18,11 +18,21 @@ class Product_model extends CI_Model {
     }
 
     /*
+    * Returns all the data about all products
+    */
+    public function getAllProducts() {
+        $sql = "SELECT * FROM product";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+
+    /*
     *   Gets the full information and profit calculations for the given product
     */
     public function getFullProduct($id) {
         $sql = "
-            SELECT p.id, p.name, p.description, p.time, p.made, p.sold, p.event, e.name AS 'event_name', e.location,
+            SELECT p.id, p.name, p.description, p.time, p.sold, p.event, e.name AS 'event_name', e.location,
                 IFNULL((SELECT IFNULL(ev.cost_upfront,0)/(COUNT(p.id)) FROM event ev JOIN product p ON p.event = ev.id WHERE ev.id=e.id GROUP BY ev.id),0) AS calculated_cost_upfront,
                 FORMAT(IFNULL(e.cost_sales,0),2) AS cost_sales,
                 IFNULL(p.sale_price,0) AS sale_price,

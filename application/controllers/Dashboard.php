@@ -154,7 +154,7 @@ class Dashboard extends CI_Controller {
 			$date = substr($date,5);
 		}
 
-        var_dump($end_date);
+        //var_dump($end_date);
 
 		$this->load->model('dashboard_model');
 		$sales_data = $this->dashboard_model->getSales($date, $end_date, $group);

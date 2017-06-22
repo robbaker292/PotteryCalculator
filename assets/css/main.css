@@ -20,6 +20,10 @@ header p, header td {
 	font-style: italic;
 }
 
+h1, h2, h4 {
+  font-family: 'Comfortaa', cursive;
+}
+
 img.left, img.right, img.middle {
 	max-width: 100%;
 	height: auto;
@@ -117,7 +121,11 @@ tr.clickableRow {
 
 .profit {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+
+.small-profit {
+  font-weight: bold;
 }
 
 .total_profit {
