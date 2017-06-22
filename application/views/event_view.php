@@ -24,13 +24,13 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 			echo "</td></tr>";
 		}
 
-		if(trim($event_data->start) != "") {
+		if(trim($event_data->start) != "" && $event_data->start != "0000-00-00") {
 			echo "<tr><th class=\"col-sm-3\">Start Date</th><td>";
 			echo $event_data->start;
 			echo "</td></tr>";
 		}
 
-		if(trim($event_data->end) != "") {
+		if(trim($event_data->end) != "" && $event_data->start != "0000-00-00") {
 			echo "<tr><th class=\"col-sm-3\">End Date</th><td>";
 			echo $event_data->end;
 			echo "</td></tr>";
@@ -51,6 +51,9 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 		?>
 	</table>
 </div>
+<?php
+	if(count($sales_data) > 0) {
+?>
 
 <div class="panel panel-primary">
 	<div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Event Summary</div>
@@ -102,6 +105,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 </div>
 
 <?php
+	}
 	if(count($sales_data) > 0) {
 		?>
 		<div class="panel panel-primary">

@@ -21,9 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo asset_url(); ?>js/bootstrap.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/jquery.dataTables.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/d3.min.js"></script>
-    <script src="<?php echo asset_url(); ?>js/dashboard.js"></script>
     <script src="<?php echo asset_url(); ?>js/navbar.js"></script>
     <script src="<?php echo asset_url(); ?>js/main.js"></script>
+    <script src="<?php echo asset_url(); ?>js/saveData.js"></script>
+
+    <?php if($this->uri->segment(1) == 'dashboard') { ?>
+    <script src="<?php echo asset_url(); ?>js/dashboard.js"></script>
+    <?php } ?>
 
 	<title><?php echo $title; ?></title>
 </head>
