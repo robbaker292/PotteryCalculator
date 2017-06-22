@@ -135,10 +135,15 @@ function drawGraph(urlParams) {
                         } else {
                             return formatDay(d);
                         }
-                    } else if($("input[name='groupby']:checked").val() == "month") { 
-                        return month[+d - 1];
+                    } else if($("input[name='groupby']:checked").val() == "month") {
+                        var date = +d.substring(5,7);
+                        if(date == 1) {
+                            return d.substring(0,4);
+                        } else {
+                            return month[date-1];
+                        }
                     } else {
-                        return d;
+                       return +d.substring(5,7);
                     }
                 })
             );

@@ -76,7 +76,7 @@ class Dashboard extends CI_Controller {
 		$keys = array_keys($product_data->profits);
 		foreach($product_data->profits as $key => $value) {
 			if($group == "week") { //if weeks
-				$weekNum = (new DateTime($key))->format('W');
+				$weekNum = (new DateTime($key))->format('o-W');
 				//var_dump($weekNum);
 				if(!isset($output_profits[$weekNum])) { //might not be set, so initialise to 0
 					$output_profits[$weekNum] = 0;
@@ -84,7 +84,7 @@ class Dashboard extends CI_Controller {
 				$output_profits[$weekNum] += $value;
 
 			} elseif($group == "month") { //if month
-				$month = (new DateTime($key))->format('n');
+				$month = (new DateTime($key))->format('Y-m');
 				if(!isset($output_profits[$month])) { //might not be set, so initialise to 0
 					$output_profits[$month] = 0;
 				}
@@ -107,8 +107,8 @@ class Dashboard extends CI_Controller {
 		$period=new DatePeriod($start_date,$i,$end_date);
 		foreach ($period as $d){
 			$day = $d->format('Y-m-d');
-			$week = $d->format('W');
-			$month = $d->format('n');
+			$week = $d->format('o-W');
+			$month = $d->format('Y-m');
 			//if weeks
 			if($group == "week") {
 				if(!isset($output_profits[$week])){ //if it is not set, then there are no results for this time period
@@ -148,11 +148,16 @@ class Dashboard extends CI_Controller {
 	public function getFromDate($date, $group) {
 		if($group == "day") {
 			$date = new DateTime($date);
-		}		
-        //var_dump($group);
+			$end_date = $date;
+		} else {
+			$end_date = substr($date,0,4);
+			$date = substr($date,5);
+		}
+
+        var_dump($end_date);
 
 		$this->load->model('dashboard_model');
-		$sales_data = $this->dashboard_model->getSales($date, $date, $group);
+		$sales_data = $this->dashboard_model->getSales($date, $end_date, $group);
 		$product_data = new stdClass();
 		$product_data->profit = 0;
 		$product_data->selling_price = 0;

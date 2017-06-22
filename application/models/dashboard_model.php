@@ -32,12 +32,12 @@ class Dashboard_model extends CI_Model {
             $query = $this->db->query($sql, array($start_date->format('Y-m-d'), $end_date->format('Y-m-d')));
             return $query->result();
         } elseif($group == "week") { //if the search is for a particular week
-            $sql = $sql_start."WHERE WEEK(s.date) = ?".$sql_end;
-            $query = $this->db->query($sql, array($start_date));
+            $sql = $sql_start."WHERE WEEK(s.date) = ? AND YEAR(s.date) = ?".$sql_end;
+            $query = $this->db->query($sql, array($start_date, $end_date));
             return $query->result();
         } elseif($group == "month") { //if the search is for a particular month
-            $sql = $sql_start."WHERE MONTH(s.date) = ?".$sql_end;
-            $query = $this->db->query($sql, array($start_date));
+            $sql = $sql_start."WHERE MONTH(s.date) = ? AND YEAR(s.date) = ?".$sql_end;
+            $query = $this->db->query($sql, array($start_date, $end_date));
             return $query->result();
         }
 
