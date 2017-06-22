@@ -89,4 +89,67 @@ class Product_model extends CI_Model {
         return $query->result();
     }
 
+    /**
+    * Gets all resources
+    */
+    public function getAllResources() {
+        $sql = "SELECT * FROM resource r";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
+    /**
+    *  Updates a product
+    */
+    public function editProduct($basicForm) {
+        $sql = "UPDATE product SET name=?, description=?, time=? WHERE id=?";
+        $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['time'], $basicForm['id']));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
+    /**
+    *  Inserts a product
+    */
+    public function addProduct($basicForm) {
+        $sql = "INSERT INTO product (name, description, time) VALUES(?,?,?)";
+        $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['time']));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
+    /**
+    *  Updates the resources of a product
+    */
+    public function updateResources($id, $basicForm) {
+        //var_dump($basicForm);
+        
+        $sql = "DELETE FROM product_resource WHERE pid=?";
+        $this->db->query($sql, array($id));
+        
+        $queryArr = array();
+        $params = array();
+        for($i = 0; $i < count($basicForm["resources"]); $i++) {
+            $resource = $basicForm["resources"][$i];
+            $amount = $basicForm["amount"][$i];
+            $params[] = $id;
+            $params[] = $resource;
+            $params[] = $amount;
+            $queryArr[] = "(?,?,?)";
+        }
+        $sql = "INSERT INTO product_resource VALUES ".implode(", ", $queryArr);
+        $result = $this->db->query($sql, $params);
+        if($result) {
+            return array('area' => 'resource', 'type'=>'success', 'message'=>'Save completed');
+        } else {
+            return array('area' => 'resource', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
 }

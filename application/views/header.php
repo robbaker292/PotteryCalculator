@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>css/navbar.css">
@@ -19,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo asset_url(); ?>js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/jquery.validate.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo asset_url(); ?>js/bootstrap-select.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/jquery.dataTables.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/d3.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/navbar.js"></script>

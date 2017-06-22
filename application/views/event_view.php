@@ -8,7 +8,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 ?></h2>
 
 <div class="panel panel-primary">
-		<div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Event Details</div>
+		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Event Details</h4></div>
 		<table class="table table-striped">
 		<?php
 
@@ -56,7 +56,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 ?>
 
 <div class="panel panel-primary">
-	<div class="panel-heading"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Event Summary</div>
+	<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Event Summary</h4></div>
 	<table class="table table-striped">
 		<tr>
 			<th>Total Sales</th><th>Total Profit</th><th>Av. Profit</th><th>Av. Rate</th><th>Av. Selling Price</th><th>Av. Margin</th><th>Most Profitable Product</th><th>Least Profitable Product</th>
@@ -109,7 +109,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 	if(count($sales_data) > 0) {
 		?>
 		<div class="panel panel-primary">
-			<div class="panel-heading"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;Sales</div>
+			<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;&nbsp;Sales</h4></div>
 			<table class="table table-striped dataTable">
 				<caption>Revenue is the sale price minus VAT and any payment processing fee. Profit is revenue minus parts costs and any event costs (not shown).</caption>
 				<thead>
