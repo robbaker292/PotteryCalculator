@@ -10,9 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <a href="<?php echo base_url(); ?>">Events</a>&nbsp;&nbsp;|&nbsp;
         <a href="/">Products</a>&nbsp;&nbsp;|&nbsp;
         <a href="/">Resources</a>
-    	<p class="small">
-    	This website uses cookies for various required functions.
-        </p>
     </div>
 </footer>
 </body>

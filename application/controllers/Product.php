@@ -101,7 +101,7 @@ class Product extends CI_Controller {
 		//redirect("Casualty/view/{$id}/{$str_slug}");
 	}
 
-	function listAll() {
+	public function listAll() {
 
 		$this->load->model('product_model');
 		$product_total_data = $this->product_model->getAllProducts();

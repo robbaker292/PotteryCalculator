@@ -9,11 +9,20 @@ class Event_model extends CI_Model {
     }
 
     /*
-    * Returns all the data about the given casualty
+    * Returns all the data about the given event
     */
     public function getEvent($id) {
         $sql = "SELECT * FROM event WHERE id=?";
         $query = $this->db->query($sql, array($id));
+        return $query->result();
+    }
+
+    /*
+    * Returns all the data about all events
+    */
+    public function getAllEvents() {
+        $sql = "SELECT * FROM event";
+        $query = $this->db->query($sql);
         return $query->result();
     }
 
