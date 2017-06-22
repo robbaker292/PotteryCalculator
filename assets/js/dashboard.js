@@ -1,30 +1,39 @@
-$(document).ready(function() {
+var month = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+];
 
+/**
+*   Loads the data when a bar is clicked or hovered over
+*/
+function barClicked(date) {
+    $.ajax({
+      url: "./dashboard/getFromDate/"+date+"/"+$("input[name='groupby']:checked").val()
+    })
+    .done(function( data ) {
+        $("#eventsDrilldownOuter").html(data);
+        $("#eventsDrilldownOuter").show();            
+        //console.log( "Sample of data:", data );
 
-    function barClicked(date) {
-        console.log("hello", date);
-        $.ajax({
-          url: "./dashboard/getFromDate/"+date
-        })
-        .done(function( data ) {
-            $("#eventsDrilldownOuter").html(data);
-            $("#eventsDrilldownOuter").show();            
-            console.log( "Sample of data:", data );
-
-            $('.dataTable').DataTable({
-                "paging":   false,
-                "searching":    false,
-                "info":     false,
-                "lengthChange":     false,
-                "order": [[ 1, "desc" ]],
-                "columnDefs": [
-                    { "orderable": false, "targets": 0 }
-                ]
-            });
+        $('.dataTable').DataTable({
+            "paging":   false,
+            "searching":    false,
+            "info":     false,
+            "lengthChange":     false,
+            "order": [[ 1, "desc" ]],
+            "columnDefs": [
+                { "orderable": false, "targets": 0 }
+            ]
         });
-    }
+    });
+}
 
-    $("#eventsDrilldownOuter").hide();
+/**
+*
+*   Draws the graph on screen
+*
+*/
+function drawGraph(urlParams) {
 
     // set the dimensions and margins of the graph
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -46,7 +55,8 @@ $(document).ready(function() {
     var formatDate = d3.timeFormat("%Y-%m-%d");
     var formatMonth = d3.timeFormat("%B"),
     formatDay = d3.timeFormat("%e");
-              
+ 
+    $("#drawingArea").empty();
     // append the svg object to the body of the page
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
@@ -58,12 +68,14 @@ $(document).ready(function() {
           "translate(" + margin.left + "," + margin.top + ")");
 
     // get the data
-    d3.json("./dashboard/getData", function(error, data) {
+    d3.json("./dashboard/getData/"+urlParams, function(error, data) {
         if (error) throw error;
 
         // format the data
         data.forEach(function(d) {
-            d.date = parseDate(d.date);
+            if($("input[name='groupby']:checked").val() == "day") {
+                d.date = parseDate(d.date);
+            }
             d.profit = +d.profit;
         });
 
@@ -89,8 +101,20 @@ $(document).ready(function() {
             .attr("width", x.bandwidth())
             .attr("y", function(d) { return y(Math.max(0, d.profit)); })
             .attr("height", function(d) { return Math.abs(y(d.profit) - y(0)); })
-            .on("click", function(d) {
-                barClicked(formatDate(d.date));
+            .on("click", function(d) {                
+                if($("input[name='groupby']:checked").val() == "day") {
+                    barClicked(formatDate(d.date));
+                } else {
+                    barClicked(d.date);
+                }
+                d3.event.stopPropagation();
+            })
+            .on("mouseover", function(d) {
+                if($("input[name='groupby']:checked").val() == "day") {
+                    barClicked(formatDate(d.date));
+                } else {
+                    barClicked(d.date);
+                }
                 d3.event.stopPropagation();
             });
 
@@ -105,10 +129,16 @@ $(document).ready(function() {
                 d3.axisBottom()
                 .scale(x)
                 .tickFormat( function(d,i) {
-                    if (d.getDate() == 1) {
-                        return formatMonth(d);
+                    if($("input[name='groupby']:checked").val() == "day") {
+                        if (d.getDate() == 1) {
+                            return formatMonth(d);
+                        } else {
+                            return formatDay(d);
+                        }
+                    } else if($("input[name='groupby']:checked").val() == "month") { 
+                        return month[+d - 1];
                     } else {
-                        return formatDay(d);
+                        return d;
                     }
                 })
             );
@@ -125,5 +155,23 @@ $(document).ready(function() {
             .call(d3.axisLeft(y));
 
     });
+}
+
+function updateGraph() {
+    
+    var start = $("#start_date").val();
+    var end = $("#end_date").val();
+    var group = $("input[name='groupby']:checked").val();
+    console.log("update", start + "/" + end + "/" + group);
+    drawGraph(start + "/" + end + "/" + group);
+}
+
+$(document).ready(function() {
+    $("#eventsDrilldownOuter").hide();
+    drawGraph(""); //default params
+
+    $("#updateGraph").click(function() {
+        updateGraph();
+    })
 
 } );

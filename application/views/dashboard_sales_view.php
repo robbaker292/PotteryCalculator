@@ -2,7 +2,7 @@
 	if(count($sales_data) > 0) {
 		?>
 		<div class="panel panel-primary">
-			<div class="panel-heading"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;Sales Drilldown</div>
+			<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;Sales Drilldown</h4></div>
 			<table class="table table-striped dataTable">
 				<caption>Revenue is the sale price minus VAT and any payment processing fee. Profit is revenue minus parts costs and any event costs (not shown).</caption>
 				<thead>

@@ -1,5 +1,5 @@
 <div class="panel panel-primary">
-	<div class="panel-heading"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;Sales Summary</div>
+	<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-database" aria-hidden="true"></i>&nbsp;&nbsp;Sales Summary</h4></div>
 <table class="table table-striped">
 		<thead>
 			<tr>
