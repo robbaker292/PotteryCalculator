@@ -3,10 +3,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //var_dump($sales_data);
 ?>
+<script>
+$(document).on("click", ".btn-delete", function(e) {
+	bootbox.confirm({ 
+		size: "large",
+		title: "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Warning!",
+		message: "This will delete the current Product.<br>All Sales with this Product will be deleted.<br>This CANNOT be undone",
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete',
+				className: 'btn-danger'
+			},
+			cancel: {
+				label: '<i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Cancel',
+				className: 'btn-primary'
+			}
+		}, 
+		callback: function(result){ 
+			if(result) {
+				window.location.href = <?php echo "\"".base_url()."product/delete/".$product_data->id."\""; ?>;
+			}
+		}
+	});
+});
+</script>
 
 <h2><?php echo $product_data->name; 
 echo "&nbsp;&nbsp;<a href=\"".base_url()."product/edit/".$product_data->id."\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Edit</a>";
-?></h2>
+?>
+	<a href="#" class="btn btn-danger btn-md pull-right btn-delete" role="button">
+		<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete Product
+	</a>
+</h2>
 
 <div class="panel panel-primary">
 		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;&nbsp;Product Details</h4></div>

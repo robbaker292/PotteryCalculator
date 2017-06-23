@@ -153,4 +153,17 @@ class Product_model extends CI_Model {
         }
     }
 
+    /**
+    *   Deletes a product
+    */
+    public function deleteProduct($id) {
+        $sql = "DELETE FROM product WHERE id = ?";
+        $result = $this->db->query($sql, array($id));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Delete completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
 }

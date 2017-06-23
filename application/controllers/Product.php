@@ -281,4 +281,23 @@ echo"			<div class=\"resourceOptions\">
 
 	}
 
+	/**
+	*	Deletes a product
+	*/
+	public function delete($id) {
+		$this->load->model('product_model');
+		$result = $this->product_model->deleteProduct($id);
+		//if the update worked
+		if($result["type"] == "success") {
+			//var_dump($result);
+			redirect("product/listAll");
+		} else {
+			//output the error message :(
+			header('HTTP/1.1 500 Internal Server Error');
+   			header('Content-Type: application/json; charset=UTF-8');
+    		die(json_encode($result));
+		}
+
+	}
+
 }
