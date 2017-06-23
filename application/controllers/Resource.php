@@ -117,4 +117,23 @@ class Resource extends CI_Controller {
 		
 	}
 
+	/**
+	*	Deletes a resource
+	*/
+	public function delete($id) {
+		$this->load->model('resource_model');
+		$result = $this->resource_model->deleteResource($id);
+		//if the update worked
+		if($result["type"] == "success") {
+			//var_dump($result);
+			redirect("resource/listAll");
+		} else {
+			//output the error message :(
+			header('HTTP/1.1 500 Internal Server Error');
+   			header('Content-Type: application/json; charset=UTF-8');
+    		die(json_encode($result));
+		}
+
+	}
+
 }

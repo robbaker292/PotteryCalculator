@@ -118,7 +118,25 @@ class Sale extends CI_Controller {
 		} else {
 			echo json_encode($output);
 		}
-		
+	
+	}
+
+	/**
+	*	Deletes a sale
+	*/
+	public function delete($id) {
+		$this->load->model('sale_model');
+		$result = $this->sale_model->deleteSale($id);
+		//if the update worked
+		if($result["type"] == "success") {
+			//var_dump($result);
+			redirect("dashboard");
+		} else {
+			//output the error message :(
+			header('HTTP/1.1 500 Internal Server Error');
+   			header('Content-Type: application/json; charset=UTF-8');
+    		die(json_encode($result));
+		}
 
 	}
 

@@ -12,7 +12,7 @@ $(document).ready( function() {
             dataType: "json",
             success: function(data) {
                 var id = data.insert_id;
-               // console.log(data);
+                //console.log("../../view/"+id);
                 //window.location.href = "../listAll";
                 window.location.href = "../view/"+id;
             	//location.reload();

@@ -89,4 +89,17 @@ class Sale_model extends CI_Model {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }
     }
+
+    /**
+    *   Deletes a product
+    */
+    public function deleteSale($id) {
+        $sql = "DELETE FROM sale WHERE id = ?";
+        $result = $this->db->query($sql, array($id));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Delete completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
 }
