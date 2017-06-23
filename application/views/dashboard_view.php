@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //var_dump($start_date);
 ?>
 
-<h2>Dashboard</h2>
+<h2><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;Dashboard</h2>
 
 <div class="panel panel-primary">
 	<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Profit Chart</h4></div>

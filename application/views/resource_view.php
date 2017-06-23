@@ -29,7 +29,7 @@ $(document).on("click", ".btn-delete", function(e) {
 });
 </script>
 
-<h2><?php echo $resource_data->name; 
+<h2><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;<?php echo $resource_data->name; 
 echo "&nbsp;&nbsp;<a href=\"".base_url()."resource/edit/".$resource_data->id."\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Edit</a>";
 ?>
 	<a href="#" class="btn btn-danger btn-md pull-right btn-delete" role="button">

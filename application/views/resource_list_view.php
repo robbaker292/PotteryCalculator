@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //var_dump($product_data);
 ?>
 
-<h2>Resources<?php 
+<h2><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Resources<?php 
 echo "&nbsp;&nbsp;<a href=\"".base_url()."resource/edit/-1\" class=\"btn btn-success btn-md\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Add</a>";
 ?></h2>
 

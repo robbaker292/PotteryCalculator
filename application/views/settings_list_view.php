@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<h2>Settings</h2>
+<h2><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Settings</h2>
 
 <div class="panel panel-primary">
 		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;List of VAT Rates

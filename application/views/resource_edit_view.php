@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<h2><i class="fa fa-pencil" aria-hidden="true"></i>
 	<?php
 	if ($new) {
-		echo "<h2>New Resource</h2>";
+		echo "New Resource</h2>";
 	} else {		
-		echo "<h2>Editing Resource";
+		echo "Editing Resource";
 		echo "&nbsp;&nbsp;<a href=\"".base_url()."resource/view/".$resource->id."\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>&nbsp;&nbsp;View</a>";
 		echo "</h2>";
 	}	

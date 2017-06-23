@@ -25,11 +25,12 @@ $(document).on("click", ".btn-delete", function(e) {
 	});
 });
 </script>
+<h2><i class="fa fa-pencil" aria-hidden="true"></i>
 	<?php
 	if ($new) {
-		echo "<h2>New Sale";
+		echo "New Sale";
 	} else {		
-		echo "<h2>Editing Sale";
+		echo "Editing Sale";
 		echo "&nbsp;&nbsp;<a href=\"".base_url()."dashboard\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>&nbsp;&nbsp;View</a>";
 		?>
 		<a href="#" class="btn btn-danger btn-md pull-right btn-delete" role="button">

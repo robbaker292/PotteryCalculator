@@ -25,11 +25,12 @@ $(document).on("click", ".btn-delete", function(e) {
 	});
 });
 </script>
+<h2><i class="fa fa-pencil" aria-hidden="true"></i>
 	<?php
 	if ($new) {
-		echo "<h2>New Payment Method";
+		echo "New Payment Method";
 	} else {		
-		echo "<h2>Editing Payment Method";
+		echo "Editing Payment Method";
 		echo "&nbsp;&nbsp;<a href=\"".base_url()."settings/listAll\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>&nbsp;&nbsp;View</a>";
 		?>
 		<a href="#" class="btn btn-danger btn-md pull-right btn-delete" role="button">

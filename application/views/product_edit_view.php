@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<h2><i class="fa fa-pencil" aria-hidden="true"></i>
 	<?php
 	if ($new) {
-		echo "<h2>New Product</h2>";
+		echo "New Product</h2>";
 	} else {		
-		echo "<h2>Editing Product";
+		echo "Editing Product";
 		echo "&nbsp;&nbsp;<a href=\"".base_url()."product/view/".$product->id."\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>&nbsp;&nbsp;View</a>";
 		echo "</h2>";
 	}	

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //var_dump($event_total_data);
 ?>
 
-<h2>Events<?php 
+<h2><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Events<?php 
 echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/-1\" class=\"btn btn-success btn-md\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;New</a>";
 ?></h2>
 

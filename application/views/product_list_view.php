@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //var_dump($product_total_data);
 ?>
 
-<h2>Products<?php 
+<h2><i class="fa fa-coffee" aria-hidden="true"></i>&nbsp;Products<?php 
 echo "&nbsp;&nbsp;<a href=\"".base_url()."product/edit/-1\" class=\"btn btn-success btn-md\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;New</a>";
 ?></h2>
 
