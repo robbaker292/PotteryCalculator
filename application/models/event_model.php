@@ -54,7 +54,7 @@ class Event_model extends CI_Model {
         $sql = "UPDATE event SET name=?, location=?, start=?, end=?, cost_upfront=?, cost_sales=? WHERE id=?";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['location'], $basicForm['start'], $basicForm['end'], $basicForm['cost_upfront'], $basicForm['cost_sales'], $basicForm['id']));
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $this->db->insert_id());
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }
@@ -67,7 +67,7 @@ class Event_model extends CI_Model {
         $sql = "INSERT INTO event (name, location, start, end, cost_upfront, cost_sales) VALUES(?,?,?,?,?,?)";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['location'], $basicForm['start'], $basicForm['end'], $basicForm['cost_upfront'], $basicForm['cost_sales']));
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $this->db->insert_id());
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }

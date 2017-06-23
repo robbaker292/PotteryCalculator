@@ -53,9 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 		<div class="form-group" id="titleGroup">
-			<label class="control-label col-sm-3" for="cost_sales">Cut of Sales (%, if any):</label>
+			<label class="control-label col-sm-3" for="cost_sales">Cut of Sales (if any):</label>
 			<div class="col-sm-9">
 				<input type="number" class="form-control" id="cost_sales" placeholder="Enter Cut of Sales (if any)" name="cost_sales" <?php if(!$new) { echo "value=\"".$event->cost_sales."\""; }?> >
+				<div class="help-block">Enter as decimal, i.e. 20% = 0.2</div>
 			</div>
 		</div>
 

@@ -115,7 +115,7 @@ tr.clickableRow {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-#saveAllResultChangedDetails {
+#saveAllResultChangedDetails, #potentialSaleGraph {
   display: none;
 }
 
@@ -155,3 +155,18 @@ rect.positive {
   fill: green;
 }
 
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 4px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}

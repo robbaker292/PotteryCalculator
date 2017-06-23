@@ -13,7 +13,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/-1\" class=\"btn btn-succes
 		<table class="table dataTable">
 			<thead>
 			<tr>
-					<th>&nbsp;</th><th>Name</th><th>Total Sales</th><th>Total Profit</th><th>Av. Profit</th><th>Av. Rate</th><th>Av. Selling Price</th><th>Av. Margin</th>
+					<th>&nbsp;</th><th>Start Date</th><th>Name</th><th>Total Sales</th><th>Total Profit</th><th>Av. Profit</th><th>Av. Rate</th><th>Av. Selling Price</th><th>Av. Margin</th>
 				</tr>
 			</thead><tbody>
 		<?php
@@ -38,6 +38,12 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/-1\" class=\"btn btn-succes
 
 						echo "<td>";
 						echo "<a href=\"".base_url()."event/edit/".$event_data->id."\" class=\"btn btn-primary btn-xs\" role=\"button\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></a>";
+						echo "</td><td>";
+						if($event_data->start == "0000-00-00" || $event_data->start =="null") {
+							echo "&nbsp;";
+						} else {
+							echo $event_data->start;
+						}
 						echo "</td><td>";
 						echo "<a href=\"".base_url()."event/view/".$event_data->id."\" >".$event_data->name." <small>(".$event_data->location.")</small></a>";
 						echo "</td><td class=\"profit\">";

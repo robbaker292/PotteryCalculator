@@ -5,7 +5,7 @@ class Event extends CI_Controller {
 
 	public function index()
 	{
-		echo "hello";
+		redirect("event/listAll");
 	}
 
 	/**

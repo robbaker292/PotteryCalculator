@@ -46,7 +46,7 @@ class Resource_model extends CI_Model {
         $sql = "UPDATE resource SET name=?, description=?, date_bought=?, size=?, unit_type=?, price_paid=? WHERE id=?";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['date_bought'], $basicForm['size'], $basicForm['unit_type'], $basicForm['price_paid'], $basicForm['id']));
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $this->db->insert_id());
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }
@@ -59,7 +59,7 @@ class Resource_model extends CI_Model {
         $sql = "INSERT INTO resource (name, description, date_bought, size, unit_type, price_paid) VALUES(?,?,?,?,?,?)";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['date_bought'], $basicForm['size'], $basicForm['unit_type'], $basicForm['price_paid']));
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $this->db->insert_id());
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }

@@ -105,7 +105,7 @@ class Product_model extends CI_Model {
         $sql = "UPDATE product SET name=?, description=?, time=? WHERE id=?";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['time'], $basicForm['id']));
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $basicForm['id']);
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }
@@ -117,8 +117,9 @@ class Product_model extends CI_Model {
     public function addProduct($basicForm) {
         $sql = "INSERT INTO product (name, description, time) VALUES(?,?,?)";
         $result = $this->db->query($sql, array($basicForm['name'], $basicForm['description'], $basicForm['time']));
+
         if($result) {
-            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed');
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Save completed', 'insert_id' => $this->db->insert_id());
         } else {
             return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
         }

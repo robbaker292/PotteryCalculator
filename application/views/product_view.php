@@ -70,11 +70,19 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."product/edit/".$product_data->id."\" c
 				echo "</td><td>";
 				echo number_format($product_data->margin,2)."%";
 				echo "</td><td>";
-				echo "<a href=\"".base_url()."event/view/".$product_data->max_event."\">".$product_data->max_event_name." (".$product_data->max_event_location.") (&pound;"
-					.number_format($product_data->max_event_profit,2).")</a>";
+				if(isset($product_data->max_event)) {
+					echo "<a href=\"".base_url()."event/view/".$product_data->max_event."\">".$product_data->max_event_name." (".$product_data->max_event_location.") (&pound;"
+						.number_format($product_data->max_event_profit,2).")</a>";
+				} else {
+					echo "N/A";
+				}
 				echo "</td><td>";
-				echo "<a href=\"".base_url()."event/view/".$product_data->min_event."\">".$product_data->min_event_name." (".$product_data->min_event_location.") (&pound;"
-					.number_format($product_data->min_event_profit,2).")</a>";
+				if(isset($product_data->min_event)) {
+					echo "<a href=\"".base_url()."event/view/".$product_data->min_event."\">".$product_data->min_event_name." (".$product_data->min_event_location.") (&pound;"
+						.number_format($product_data->min_event_profit,2).")</a>";
+				} else {
+					echo "N/A";
+				}
 				echo "</td>";
 
 			?>

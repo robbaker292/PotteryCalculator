@@ -5,7 +5,7 @@ class Product extends CI_Controller {
 
 	public function index()
 	{
-		echo "hello";
+		redirect("product/listAll");
 	}
 
 	/**
@@ -63,7 +63,7 @@ class Product extends CI_Controller {
 		}
 
 		//calculate other product details
-		if(count($sales_data) != 0) {
+		if(count($sales_data) > 0) {
 			$product_data->avg_profit = $product_data->profit / count($sales_data);
 		}
 
@@ -73,20 +73,22 @@ class Product extends CI_Controller {
 			$product_data->margin = "N/A";
 		}
 
-		if(count($sales_data) != 0) {
+		if(count($sales_data) > 0) {
 			$product_data->avg_rate = $product_data->profit / (floatval($product_data->time) * count($sales_data));
 			$product_data->avg_selling_price = $product_data->selling_price / count($sales_data);
 			unset($product_data->profits[""]); //remove the "no event";
 
-			$product_data->max_event_profit = max($product_data->profits);
-			$product_data->max_event = array_keys($product_data->profits, max($product_data->profits))[0];
-			$product_data->max_event_name = $events[$product_data->max_event];
-			$product_data->max_event_location = $events_location[$product_data->max_event];
+			if(count($product_data->profits) > 0) { //in case there are no events for this item
+				$product_data->max_event_profit = max($product_data->profits);
+				$product_data->max_event = array_keys($product_data->profits, max($product_data->profits))[0];
+				$product_data->max_event_name = $events[$product_data->max_event];
+				$product_data->max_event_location = $events_location[$product_data->max_event];
 
-			$product_data->min_event_profit = min($product_data->profits);
-			$product_data->min_event = array_keys($product_data->profits, min($product_data->profits))[0];
-			$product_data->min_event_name = $events[$product_data->min_event];
-			$product_data->min_event_location = $events_location[$product_data->min_event];
+				$product_data->min_event_profit = min($product_data->profits);
+				$product_data->min_event = array_keys($product_data->profits, min($product_data->profits))[0];
+				$product_data->min_event_name = $events[$product_data->min_event];
+				$product_data->min_event_location = $events_location[$product_data->min_event];
+			}
 		}
 	
 		$data = array(
@@ -168,9 +170,12 @@ class Product extends CI_Controller {
 	*/
 	public function edit($id = null) {
 		$this->load->model('product_model');
+		$all_resources = $this->product_model->getAllResources();
 		//is an product being created?
 		if($id == "-1") {
 			$data = array(
+				'resources' => array(),
+				'all_resources' => $all_resources,
 				'new' => true
 			);
 			$this->load->view('header', array("title" => "Creating: Product - Pottery by Andrew Macdermott"));
@@ -180,7 +185,6 @@ class Product extends CI_Controller {
 		} else {		
 			$product = $this->product_model->getProduct($id);
 			$resources_data = $this->product_model->getResources($id);
-			$all_resources = $this->product_model->getAllResources();
 			
 			if(count($product) == 0) {
 				redirect("product/listAll");
