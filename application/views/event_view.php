@@ -58,7 +58,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."event/edit/".$event_data->id."\" class
 			echo "</td></tr>";
 		}
 
-		if(trim($event_data->end) != "" && $event_data->start != "0000-00-00") {
+		if(trim($event_data->end) != "" && $event_data->end != "0000-00-00") {
 			echo "<tr><th class=\"col-sm-3\">End Date</th><td>";
 			echo $event_data->end;
 			echo "</td></tr>";

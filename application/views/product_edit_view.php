@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								if($resource->id == $rL->id) {
 									echo "selected";
 								}
-								echo ">(".$rL->id.") ".$rL->name." (".$rL->unit_type.")</option>";
+								echo ">(".$rL->id.") ".$rL->name." (".$rL->size." ".$rL->unit_type.")</option>";
 							}
 							?>
 						</select>

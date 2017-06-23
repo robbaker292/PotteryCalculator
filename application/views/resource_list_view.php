@@ -11,7 +11,7 @@ echo "&nbsp;&nbsp;<a href=\"".base_url()."resource/edit/-1\" class=\"btn btn-suc
 
 <div class="panel panel-primary">
 		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;List of All Resources</h4></div>
-		<table class="table dataTable">
+		<table class="table table-striped dataTable">
 			<thead>
 			<tr>
 					<th>&nbsp;</th><th>Name</th><th>Date Bought</th><th>Price Paid</th><th>Size</th><th>Used in Products</th>

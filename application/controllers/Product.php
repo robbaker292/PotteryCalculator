@@ -243,13 +243,13 @@ echo"			<div class=\"resourceOptions\">
 								
 								foreach($all_resources as $rL) {
 									echo "<option value=\"".$rL->id."\" data-subtext=\"Bought ".$rL->date_bought."\"";
-									echo ">(".$rL->id.") ".$rL->name." (".$rL->unit_type.")</option>";
+									echo ">(".$rL->id.") ".$rL->name." (".$rL->size." ".$rL->unit_type.")</option>";
 								}
 	echo							"
 							</select>
 						</div>
 						<div class=\"col-sm-5\">
-							<input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Enter Amount\" name=\"amount\">
+							<input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Enter Amount\" name=\"amount[]\">
 						</div>
 					</div>
 				</div>
