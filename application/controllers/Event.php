@@ -222,4 +222,23 @@ class Event extends CI_Controller {
 		
 	}
 
+	/**
+	*	Deletes an event
+	*/
+	public function delete($id) {
+		$this->load->model('event_model');
+		$result = $this->event_model->deleteEvent($id);
+		//if the update worked
+		if($result["type"] == "success") {
+			//var_dump($result);
+			redirect("event/listAll");
+		} else {
+			//output the error message :(
+			header('HTTP/1.1 500 Internal Server Error');
+   			header('Content-Type: application/json; charset=UTF-8');
+    		die(json_encode($result));
+		}
+
+	}
+
 }

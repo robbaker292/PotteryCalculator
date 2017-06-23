@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo asset_url(); ?>js/bootstrap.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/bootstrap-select.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo asset_url(); ?>js/bootbox.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/d3.min.js"></script>
     <script src="<?php echo asset_url(); ?>js/main.js"></script>
     <script src="<?php echo asset_url(); ?>js/saveData.js"></script>

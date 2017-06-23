@@ -8,6 +8,11 @@ class Sale extends CI_Controller {
 		redirect("dashboard");
 	}
 
+	public function view()
+	{
+		redirect("dashboard");
+	}
+
 	/**
 	*	Displays the edit page of the given sale
 	*/

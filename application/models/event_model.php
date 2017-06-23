@@ -73,4 +73,17 @@ class Event_model extends CI_Model {
         }
     }
 
+    /**
+    *   Deletes an event
+    */
+    public function deleteEvent($id) {
+        $sql = "DELETE FROM event WHERE id = ?";
+        $result = $this->db->query($sql, array($id));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Delete completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
 }
