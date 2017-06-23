@@ -1,16 +1,44 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<script>
+$(document).on("click", ".btn-delete", function(e) {
+	bootbox.confirm({ 
+		size: "large",
+		title: "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Warning!",
+		message: "This will delete the current VAT rate.<br>This may cause calculations to assume there is no VAT rate if not all dates are covered by a rate.<br>This CANNOT be undone",
+		buttons: {
+			confirm: {
+				label: '<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete',
+				className: 'btn-danger'
+			},
+			cancel: {
+				label: '<i class="fa fa-ban" aria-hidden="true"></i>&nbsp;&nbsp;Cancel',
+				className: 'btn-primary'
+			}
+		}, 
+		callback: function(result){ 
+			if(result) {
+				window.location.href = <?php echo "\"".base_url()."settings/deleteVat/".$vat->id."\""; ?>;
+			}
+		}
+	});
+});
+</script>
 	<?php
 	if ($new) {
-		echo "<h2>New VAT Rate</h2>";
+		echo "<h2>New VAT Rate";
 	} else {		
 		echo "<h2>Editing VAT Rate";
 		echo "&nbsp;&nbsp;<a href=\"".base_url()."settings/listAll\" class=\"btn btn-primary btn-md\" role=\"button\"><i class=\"fa fa-arrow-left\" aria-hidden=\"true\"></i>&nbsp;&nbsp;View</a>";
-		echo "</h2>";
+		?>
+		<a href="#" class="btn btn-danger btn-md pull-right btn-delete" role="button">
+			<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete VAT rate
+		</a>
+		<?php
 	}	
 	?>
-
+</h2>
 
 <div id="editing">
 

@@ -86,4 +86,30 @@ class Settings_model extends CI_Model {
         }
     }
 
+    /**
+    *   Deletes a vat rate
+    */
+    public function deleteVat($id) {
+        $sql = "DELETE FROM vat WHERE id = ?";
+        $result = $this->db->query($sql, array($id));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Delete completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
+    /**
+    *   Deletes a pm rate
+    */
+    public function deletePM($id) {
+        $sql = "DELETE FROM payment_method WHERE type = ?";
+        $result = $this->db->query($sql, array($id));
+        if($result) {
+            return array('area' => 'main', 'type'=>'success', 'message'=>'Delete completed');
+        } else {
+            return array('area' => 'main', 'type'=>'failure', 'message'=>'Database error');     
+        }
+    }
+
 }
