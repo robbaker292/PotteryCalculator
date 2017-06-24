@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="panel panel-primary">
 		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;List of VAT Rates
 			&nbsp;&nbsp;
-			<?php echo "<a href=\"".base_url()."settings/editVat/-1\" class=\"btn btn-success btn-xs\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Add</a>";
+			<?php echo "<a href=\"".base_url()."settings/editVat/-1\" class=\"btn btn-success btn-xs\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;New</a>";
 			?>
 		</h4></div>
 		<table class="table table-striped dataTable">
@@ -55,13 +55,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="panel panel-primary">
 		<div class="panel-heading"><h4 class="panel-title"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;List of Payment Methods
 			&nbsp;&nbsp;
-			<?php echo "<a href=\"".base_url()."settings/editPM/-1\" class=\"btn btn-success btn-xs\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;Add</a>";
+			<?php echo "<a href=\"".base_url()."settings/editPM/-1\" class=\"btn btn-success btn-xs\" role=\"button\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i>&nbsp;&nbsp;New</a>";
 			?>
 		</h4></div>
 		<table class="table table-striped dataTable">
 			<thead>
 			<tr>
-					<th>&nbsp;</th><th>Type</th><th>Cut (%)</th>
+					<th>&nbsp;</th><th>Type</th><th>Cut</th>
 				</tr>
 			</thead><tbody>
 		<?php
